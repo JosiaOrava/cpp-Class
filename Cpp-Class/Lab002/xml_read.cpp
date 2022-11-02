@@ -39,12 +39,13 @@ int main() {
 			/* std::cout << tag << ":" << find_first_element(page, tag) << std::endl; */
 			//case 2
 			results = find_all_elements(page,tag);
+			int j = 0;
 			std::cout << tag << ": "; 
-			for (int i = 0; i < results.size(); i++)
+			for (int i = 0; i < results.size(); i++,j++)
 			{
 				std::cout << results[i] <<","; 
 			}
-			std::cout << std::endl;
+			std::cout << "\nSize of vector: " << j << std::endl;
 			
 		}
 	}
