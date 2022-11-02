@@ -36,16 +36,16 @@ int main() {
 			break;
 		} else{
 			//case 1
-			/* std::cout << tag << ":" << find_first_element(page, tag) << std::endl; */
+			 std::cout << tag << ":" << find_first_element(page, tag) << std::endl; 
 			//case 2
-			results = find_all_elements(page,tag);
+			/*results = find_all_elements(page,tag);
 			int j = 0;
 			std::cout << tag << ": "; 
 			for (int i = 0; i < results.size(); i++,j++)
 			{
 				std::cout << results[i] <<","; 
 			}
-			std::cout << "\nSize of vector: " << j << std::endl;
+			std::cout << "\nSize of vector: " << j << std::endl;*/
 			
 		}
 	}
@@ -65,8 +65,8 @@ string find_first_element(const string &xml, string tag_name)
 	// add angle brackets to both tags and also slash to end tag
 	// then search for tags 
 	// if both are found then return the substring between the tags
-	startPos = xml.find(start);
-	endPos = xml.find(end);
+	auto startPos = xml.find(start);
+	auto endPos = xml.find(end);
 	if (startPos > 0 && endPos > 0){
 		for(int i = startPos + start.size(); i<endPos; i++){
 			result += xml[i];
