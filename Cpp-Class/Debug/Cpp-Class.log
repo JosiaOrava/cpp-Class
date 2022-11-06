@@ -1,2 +1,7 @@
-﻿  main.cpp
-  Cpp-Class.vcxproj -> C:\Users\Josia\source\repos\cpp_Class\Debug\Cpp-Class.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1091,5): warning MSB8027: Two or more files with the name of main.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are Lab003\main.cpp, Lab01\main.cpp.
+  main.cpp
+C:\Users\Josia Orava\Desktop\Koulu\cpp\lab002\cpp-Class\Cpp-Class\Lab003\main.cpp(28,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Josia Orava\Desktop\Koulu\cpp\lab002\cpp-Class\Cpp-Class\Lab003\main.cpp(30,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Josia Orava\Desktop\Koulu\cpp\lab002\cpp-Class\Cpp-Class\Lab003\main.cpp(54,21): warning C4018: '<': signed/unsigned mismatch
+Debug\main.obj : warning LNK4042: object specified more than once; extras ignored
+  Cpp-Class.vcxproj -> C:\Users\Josia Orava\Desktop\Koulu\cpp\lab002\cpp-Class\Debug\Cpp-Class.exe
