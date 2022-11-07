@@ -1,0 +1,6 @@
+﻿  main.cpp
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Lab003\Lab003\main.cpp(53,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Lab003\Lab003\main.cpp(67,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Lab003\Lab003\main.cpp(78,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Lab003\Lab003\main.cpp(83,21): warning C4018: '<': signed/unsigned mismatch
+  Lab003.vcxproj -> C:\Users\Josia\Desktop\School\cpp\cpp-Class\Debug\Lab003.exe

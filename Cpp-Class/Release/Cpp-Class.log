@@ -1,0 +1,15 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1091,5): warning MSB8027: Two or more files with the name of main.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are Lab003\main.cpp, Lab004\main.cpp, Lab01\main.cpp.
+  xml_read.cpp
+  main.cpp
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Cpp-Class\Lab003\main.cpp(42,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Cpp-Class\Lab003\main.cpp(44,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Cpp-Class\Lab003\main.cpp(64,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Cpp-Class\Lab003\main.cpp(76,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Cpp-Class\Lab003\main.cpp(87,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Cpp-Class\Lab003\main.cpp(92,21): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+  main.cpp
+main.obj : error LNK2005: _main already defined in xml_read.obj
+Release\main.obj : warning LNK4042: object specified more than once; extras ignored
+Release\main.obj : warning LNK4042: object specified more than once; extras ignored
+C:\Users\Josia\Desktop\School\cpp\cpp-Class\Release\Cpp-Class.exe : fatal error LNK1169: one or more multiply defined symbols found

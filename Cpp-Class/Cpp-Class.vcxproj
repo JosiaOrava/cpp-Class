@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lab003\main.cpp" />
     <ClCompile Include="Lab01\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
