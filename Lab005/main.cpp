@@ -4,8 +4,10 @@
 #include <vector>
 #include <algorithm>
 
+
 class Time
 {
+	friend std::ostream& operator<<(std::ostream &out, const Time &t);
 private:
 	int hour, min;
 public:
@@ -14,13 +16,59 @@ public:
 	bool lessThan(Time t);
 	Time subtract(Time t);
 	void display();
+	Time operator+(const Time& t) const;
+	bool operator<(const Time& t) const;
+	Time operator-(const Time& t) const;
+	Time& operator++();
+	Time operator++(int);
 };
-
-Time::Time(int hour, int min)
-{
-	this->hour = hour;
-	this->min = min;
+Time::Time(int hour, int min) :hour(hour), min(min){}
+Time& Time::operator++() {
+	++min;
+	return *this;
 }
+
+Time Time::operator++(int) {
+	Time old = *this;
+	++min;
+	return old;
+}
+
+std::ostream& operator<<(std::ostream& out, const Time& t) {
+	out << std::setiosflags(std::ios::right); std::cout << std::setfill('0') << std::setw(2) << t.hour << ":" << std::setfill('0') << std::setw(2) << t.min << std::endl;
+	return out;
+}
+
+Time Time::operator-(const Time& t) const{
+	Time tmp;
+	tmp.hour = this->hour - t.hour;
+	tmp.min = this->min - t.min;
+	return tmp;
+}
+
+bool Time::operator<(const Time& t) const {
+	if (hour < t.hour || (hour == t.hour && min < t.hour)) {
+		return true;
+	}
+	return false;
+}
+
+Time Time::operator+(const Time& t) const
+{
+	Time tmp;
+	tmp.hour = this->hour + t.hour;
+	if (tmp.hour > 24) 
+	{
+		tmp.hour = tmp.hour - 24;
+	}
+	tmp.min = this->min + t.min;
+	if (tmp.min > 60) 
+	{
+		tmp.min = tmp.min - 60;
+	}
+	return tmp;
+}
+
 void Time::read(std::string s)
 {
 	std::cout << s << std::endl;
@@ -62,55 +110,70 @@ Time Time::subtract(Time t)
 	return diff;
 }
 
+
 void print(const std::vector<Time>& v)
 {
 	for (auto& t : v) {
 		std::cout << t << std::endl;
 	}
 }
+
+
+
 int main() {
-	Time time1, time2, duration;
+	Time time1, time2, duration, duration2;
+
 	time1.read("Enter time 1");
 	time2.read("Enter time 2");
-	if (time1 < time2)
-	{
-		duration = time2 – time1;
+	if (time1 < time2) {
+		duration = time2 - time1;
 		std::cout << "Starting time was " << time1 << std::endl;
+		duration2 = time1 - time2;
 	}
-	else 
-	{
-		duration = time1 – time2;
+	else {
+		duration = time1 - time2;
 		std::cout << "Starting time was " << time2 << std::endl;
+		duration2 = time2 - time1;
+
 	}
 	std::cout << "Duration was " << duration << std::endl;
+
+	// check that we don't get negative times
+	std::cout << "Duration2 was " << duration2 << std::endl;
+
+
 	std::vector<Time> tv(5);
-	for (auto& t : tv) 
-	{
+	for (auto& t : tv) {
 		t.read("Enter time:");
 	}
+
 	std::cout << "Times: " << std::endl;
 	print(tv);
+
 	Time sum;
-	for (auto t : tv)
-	{
+	for (auto t : tv) {
 		sum = sum + t;
 	}
+
 	std::cout << "Sum of times: " << sum << std::endl;
+
 	std::cout << "Post-increment: " << std::endl;
 	print(tv);
-	for (auto& t : tv) 
-	{
+	for (auto& t : tv) {
 		std::cout << t++ << std::endl;
 	}
+
 	print(tv);
+
 	std::cout << "Pre-increment: " << std::endl;
-	for (auto& t : tv) 
-	{
+	for (auto& t : tv) {
 		std::cout << ++t << std::endl;
 	}
+
 	std::sort(tv.begin(), tv.end());
+
 	std::cout << "Sorted times: " << std::endl;
 	print(tv);
+
 	return 0;
 }
-
