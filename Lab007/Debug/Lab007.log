@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\Josia Orava\Desktop\Koulu\cpp-Class\Lab007\main.cpp(13,38): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Josia Orava\Desktop\Koulu\cpp-Class\Lab007\main.cpp(19,17): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Lab007.vcxproj -> C:\Users\Josia Orava\Desktop\Koulu\cpp-Class\Debug\Lab007.exe
