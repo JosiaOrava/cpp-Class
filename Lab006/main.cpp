@@ -4,8 +4,8 @@
 #include <sstream>
 #include <algorithm>
 #include <vector>
-#include "Time.h"
 #include <iomanip>
+#include "Time.h"
 
 class Day {
 public:
@@ -32,9 +32,18 @@ bool Day::from_str(const std::string& s) {
 	Time time;
 	std::string word;
 	std::vector<std::string> words;
-	if (s.find("Broken") != std::string::npos || s.length()==0) {
-		return false;
+	std::stringstream is(s);
+	int day;
+	char c;
+	std::string month;
+	int hour, min;
+	
+	while (is >> day >> month >> hour >> c >> min || !is.eof()) {
+		if (is.fail()) {
+			return false;
+		}
 	}
+	
 	for (auto x : s) {
 		if (x == ' ') {
 			words.push_back(word);
@@ -86,13 +95,9 @@ std::string Day::to_str()
 
 void Day::dst(int offset)
 {
-	
+	Time temp(offset, 0);
 	for (auto& x : this->list) {
-		x.hour = x.hour + offset;
-		if (x.hour >= 24)
-		{
-			x.hour = x.hour - 24;
-		}
+		x = x + temp;
 	}
 }
 
