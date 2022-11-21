@@ -4,12 +4,10 @@
 #include <iostream>
 
 
-int ran() {
-	return std::rand() % 100;
-}
+
 class RandGen {
 public:
-	RandGen() : numbers() { srand(time(NULL)); }
+	
 	RandGen(int min, int max) {
 		this->min = min;
 		this->max = max;
@@ -22,6 +20,7 @@ private:
 
 int RandGen::operator()() {
 	int num;
+	std::srand(time(NULL));
 	do {
 		num = std::rand() % max + min;
 	} while (find(numbers.begin(), numbers.end(), num) != numbers.end());
@@ -55,7 +54,7 @@ int main() {
 	std::sort(lottoNum.begin(), lottoNum.end());
 	std::set_intersection(lottoNum.begin(), lottoNum.end(), vikingNum.begin(), vikingNum.end(), std::back_inserter(v));
 	std::cout << "\nMatching numbers:" << std::endl;
-	std::for_each(v.begin(), v.end(), [](const auto& n, int i = 1) {std::cout << "#" << i << ": " << n << std::endl; i++; });
+	std::for_each(v.begin(), v.end(), [i=0](const auto& n) mutable{std::cout << "#" << ++i << ": " << n << std::endl; });
 
 	// Euro numbers and matching numbers from all numbers
 	std::cout << "Eurojackpot: ";
@@ -63,7 +62,7 @@ int main() {
 	std::sort(eurojackpotNum.begin(), eurojackpotNum.end());
 	std::set_intersection(v.begin(), v.end(), eurojackpotNum.begin(), eurojackpotNum.end(), std::back_inserter(v2));
 	std::cout << "\nMatching numbers in three sets:" << std::endl;
-	std::for_each(v2.begin(), v2.end(), [](const auto& n, int i = 1) {std::cout << "#" << i << ": " << n << std::endl; i++; });
+	std::for_each(v2.begin(), v2.end(), [y=0](const auto& n) mutable{std::cout << "#" << ++y << ": " << n << std::endl; });
 
 
 	return 0;
