@@ -8,7 +8,8 @@
 Time::Time(int hour, int min) :hour(hour), min(min) {}
 
 std::istream& operator>>(std::istream& in, Time& t) {
-	in >> t.hour >> t.min;
+	char c;
+	in >> t.hour >> c >> t.min;
 	return in;
 }
 
