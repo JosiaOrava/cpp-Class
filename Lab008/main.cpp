@@ -10,6 +10,8 @@ public:
 	virtual ~Person() = default;
 	virtual void identity() const;
 	virtual void interrogate();
+	void setName(const char* name);
+	std::string getName() const{ return name; } 
 private:
 	std::string name;
 };
@@ -18,7 +20,8 @@ class Spy: public Person {
 public:
 	Spy(const char* name, const char* alias, int resistance);
 	void set_identity(const char* alias);
-	virtual void interrogate();
+	void interrogate();
+	void identity() const;
 private:
 	std::string alias;
 	int resistance;
@@ -37,10 +40,14 @@ void Person::identity() const
 void Person::interrogate()
 {
 }
+void Person::setName(const char* name)
+{
+	this->name = name;
+}
 
 Spy::Spy(const char* name, const char* alias, int resistance)
 {
-	this->name = name;
+	setName(name);
 	this->alias = alias;
 	this->resistance = resistance;
 }
@@ -52,7 +59,17 @@ void Spy::set_identity(const char* alias)
 
 void Spy::interrogate()
 {
-	resistance--;
+	resistance = resistance - 1;
+}
+
+void Spy::identity() const
+{
+	if (resistance <= 0) {
+		std::cout << "My name is: " << getName() << std::endl;
+		std::cout << "My alias is: " << alias << std::endl;
+	} else { 
+		std::cout << "My name is: " << alias << std::endl;
+	}
 }
 
 int main(int argc, char** argv) {
@@ -61,7 +78,7 @@ int main(int argc, char** argv) {
 	Spy spy("Emilio Largo", "William Johnson", 3);
 	Spy spy2("Ernst Blofield", "John Keats", 5);
 
-	std::cout << std::endl << "Nice to meet you. ";
+	std::cout << std::endl << "Nice to meet you. My name is: ";
 	agent.identity();
 
 	for (int i = 0; i < 6; ++i) {
