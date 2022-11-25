@@ -10,15 +10,21 @@ public:
 	virtual ~Person() = default;
 	virtual void identity() const;
 	virtual void interrogate();
+	void setName(const char* name);
 private:
 	std::string name;
 };
 
+void Person::setName(const char* name)
+{
+	this->name = name;
+}
 class Spy: public Person {
 public:
 	Spy(const char* name, const char* alias, int resistance);
 	void set_identity(const char* alias);
 	virtual void interrogate();
+	virtual void identity() const;
 private:
 	std::string alias;
 	int resistance;
@@ -40,11 +46,18 @@ void Person::interrogate()
 
 Spy::Spy(const char* name, const char* alias, int resistance)
 {
-	this->name = name;
+	setName(name);
 	this->alias = alias;
 	this->resistance = resistance;
 }
 
+
+void Spy::identity() const
+{
+	if (resistance >= 0) {
+		std::cout << 
+	}
+}
 void Spy::set_identity(const char* alias)
 {
 	this->alias = alias;
