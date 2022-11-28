@@ -11,10 +11,8 @@ public:
 	virtual void identity() const;
 	virtual void interrogate();
 	void setName(const char* name);
-<<<<<<< HEAD
-=======
 	std::string getName() const{ return name; } 
->>>>>>> dfe047863c0907c58c771069c8604bd22156119c
+
 private:
 	std::string name;
 };
@@ -27,13 +25,10 @@ class Spy: public Person {
 public:
 	Spy(const char* name, const char* alias, int resistance);
 	void set_identity(const char* alias);
-<<<<<<< HEAD
+
 	virtual void interrogate();
 	virtual void identity() const;
-=======
-	void interrogate();
-	void identity() const;
->>>>>>> dfe047863c0907c58c771069c8604bd22156119c
+
 private:
 	std::string alias;
 	int resistance;
@@ -67,8 +62,12 @@ Spy::Spy(const char* name, const char* alias, int resistance)
 
 void Spy::identity() const
 {
-	if (resistance >= 0) {
-		std::cout << 
+	if (resistance <= 0) {
+		std::cout << "My name is: " << getName() << std::endl;
+		std::cout << "My alias is: " << alias << std::endl;
+	}
+	else {
+		std::cout << "My name is: " << alias << std::endl;
 	}
 }
 void Spy::set_identity(const char* alias)
