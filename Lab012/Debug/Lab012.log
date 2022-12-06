@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\Josia Orava\Desktop\Koulu\cpp-Class\Lab012\main.cpp(26,17): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Josia Orava\Desktop\Koulu\cpp-Class\Lab012\main.cpp(31,21): warning C4018: '<': signed/unsigned mismatch
+  Lab012.vcxproj -> C:\Users\Josia Orava\Desktop\Koulu\cpp-Class\Debug\Lab012.exe
