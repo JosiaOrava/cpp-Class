@@ -14,43 +14,46 @@ public:
 	void changeCount(int i);
 	int operator()();
 private:
-	int min = 0, max = 0, count = 0;
+	int min = 0, max = 0, count = 0, nums = 0;
 	std::vector<int> numbers;
 };
 
 void RandGen::changeCount(int i) {
 	this->count = i;
 }
+
 int RandGen::operator()() {
 	int num;
 	std::srand(time(NULL));
-
+	nums = (max - min) + 1;
+	if (numbers.size() == nums && numbers.size() < count) {
+		throw std::runtime_error("Unable to produce unique random number");
+	}
 	do {
 		num = std::rand() % (max - min + 1) + min;
 	} while (find(numbers.begin(), numbers.end(), num)!= numbers.end());
-	if (numbers.size() < count && find(numbers.begin(), numbers.end(), num) == numbers.begin()) {
-		throw std::runtime_error("Unable to produce unique random number");
-	}
-	else {
-		numbers.push_back(num);
-	}
 	
+	numbers.push_back(num);
+
 	return num;
 }
 
 void test_generator(RandGen rg, int count) {
-	std::vector<int> numbers(count);
+	std::vector<int> numbers;
 	
 	rg.changeCount(count);
 	try {
-		std::generate(numbers.begin(), numbers.end(), rg);
+		std::cout << "Generating numbers:" << std::endl;
+		std::generate_n(std::back_inserter(numbers), count, rg);
 		
 	}
 	catch (std::runtime_error &e) {
 			std::cout << "Exception: " << e.what() << std::endl;
 			std::cout << "Tried to generate " << count << " random numbers. Got only " << numbers.size() << std::endl;;
 	}
-	std::copy(numbers.begin(), numbers.end(), std::ostream_iterator<int>(std::cout, " "));
+	
+	std::copy(numbers.begin(), numbers.end(), std::ostream_iterator<int>(std::cout, "\n"));
+	std::cout << "End of generator" << std::endl;
 }
 
 int main() {

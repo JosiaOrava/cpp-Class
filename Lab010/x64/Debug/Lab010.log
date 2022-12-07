@@ -1,2 +1,13 @@
 ﻿  main.cpp
-  Lab010.vcxproj -> C:\Users\Josia\Desktop\School\cpp-Class\x64\Debug\Lab010.exe
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(41,26): error C2259: 'Observer': cannot instantiate abstract class
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(20,7): message : see declaration of 'Observer'
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(41,26): message : due to following members:
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(41,26): message : 'void Observer::handleLimitReached(void)': is abstract
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(22,15): message : see declaration of 'Observer::handleLimitReached'
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(41,14): error C2259: 'Observer': cannot instantiate abstract class
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(20,7): message : see declaration of 'Observer'
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(41,14): message : due to following members:
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(41,14): message : 'void Observer::handleLimitReached(void)': is abstract
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(22,15): message : see declaration of 'Observer::handleLimitReached'
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(107,27): error C2512: 'OverflowCounter::OverflowCounter': no appropriate default constructor available
+C:\Users\Josia\Desktop\School\cpp-Class\Lab010\main.cpp(107,27): message : while trying to match the argument list '()'
